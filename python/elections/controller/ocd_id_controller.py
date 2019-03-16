@@ -7,8 +7,7 @@ import json
 class OCDIDController(object):
     def __init__(self, address):
         """
-        :param state (string)
-        :param city (string)
+        :param address (object)
         """
         self.state = address["state"].lower()
         self.city = address["city"].lower().replace(" ", "_")
