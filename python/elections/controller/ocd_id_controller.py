@@ -13,11 +13,18 @@ class OCDIDController(object):
         self.city = address["city"].lower().replace(" ", "_")
     
     def prepare(self):
+        """
+        Prepares the OCD ids for the state and city
+        Can be extended to use other parts of the address
+        """
         state_ocd_id = "{0}{1}".format(STATE_OCD_ID, self.state)
         city_ocd_id = "{0}{1}{2}".format(state_ocd_id, CITY_OCD_ID, self.city)
         return [state_ocd_id,city_ocd_id]
     
     def get_elections(self, data):
+        """
+        Get elections from the address
+        """
         url_param = ",".join(data)
         url = "{0}{1}".format(ELECTION_URL, url_param)
         headers = {'Accept': 'application/json'}
