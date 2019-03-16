@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+<div class="elections">
+	<h1>Possible elections</h1>
+	{% for election in elections %}
+	<div class="elections-card">
+		<div>ID: {{ election.id }}</div>
+		<div>Description: {{ election.description }}</div>
+		<div>Population: {{ election.population }}</div>
+	</div>
+	{% endfor %} {% if not elections %}
+	<span>No Results found</span>
+	{% endif %}
+</div>
+{% endblock %}
